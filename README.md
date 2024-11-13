@@ -12,7 +12,7 @@ A simple and fun number guessing game built with HTML, CSS, and JavaScript. The 
 
 ## Screenshots
 
-![Game Screenshot](![image](![Screenshot 2024-11-14 005200](https://github.com/user-attachments/assets/65f737ac-5c78-4548-85e4-098452c6db53)
+![Game Screenshot](![Screenshot 2024-11-14 005200](https://github.com/user-attachments/assets/65f737ac-5c78-4548-85e4-098452c6db53)
 )  
 _Example of the game in action_.
 
