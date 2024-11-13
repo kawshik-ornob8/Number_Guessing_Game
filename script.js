@@ -2,12 +2,10 @@ let randomNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 const maxAttempts = 10;
 
-
 const guessInput = document.getElementById("guess-input");
 const submitBtn = document.getElementById("submit-btn");
 const feedback = document.getElementById("feedback");
 const restartBtn = document.getElementById("restart-btn");
-
 
 function checkGuess() {
   const userGuess = Number(guessInput.value);
@@ -39,13 +37,11 @@ function checkGuess() {
   guessInput.focus();
 }
 
-
 function endGame() {
   guessInput.disabled = true;
   submitBtn.disabled = true;
   restartBtn.style.display = "inline-block";
 }
-
 
 function restartGame() {
   randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -59,10 +55,8 @@ function restartGame() {
   guessInput.focus();
 }
 
-
 submitBtn.addEventListener("click", checkGuess);
 restartBtn.addEventListener("click", restartGame);
-
 
 guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
