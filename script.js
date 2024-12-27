@@ -6,6 +6,12 @@ const guessInput = document.getElementById("guess-input");
 const submitBtn = document.getElementById("submit-btn");
 const feedback = document.getElementById("feedback");
 const restartBtn = document.getElementById("restart-btn");
+const attemptsLeft = document.getElementById("attempts-left"); // New element
+
+function updateAttemptsLeft() {
+  const remainingAttempts = maxAttempts - attempts;
+  attemptsLeft.textContent = remainingAttempts;
+}
 
 function checkGuess() {
   const userGuess = Number(guessInput.value);
@@ -33,6 +39,7 @@ function checkGuess() {
     feedback.style.color = "#ff9800";
   }
 
+  updateAttemptsLeft(); // Update remaining attempts
   guessInput.value = "";
   guessInput.focus();
 }
@@ -52,6 +59,7 @@ function restartGame() {
   guessInput.disabled = false;
   submitBtn.disabled = false;
   restartBtn.style.display = "none";
+  updateAttemptsLeft(); // Reset remaining attempts
   guessInput.focus();
 }
 
@@ -61,3 +69,6 @@ restartBtn.addEventListener("click", restartGame);
 guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
 });
+
+// Initialize remaining attempts
+updateAttemptsLeft();
