@@ -8,6 +8,9 @@ const feedback = document.getElementById("feedback");
 const restartBtn = document.getElementById("restart-btn");
 const attemptsLeft = document.getElementById("attempts-left"); // New element
 
+// Initialize attempts left
+attemptsLeft.textContent = maxAttempts;
+
 function updateAttemptsLeft() {
   const remainingAttempts = maxAttempts - attempts;
   attemptsLeft.textContent = remainingAttempts;
@@ -15,7 +18,6 @@ function updateAttemptsLeft() {
 
 function checkGuess() {
   const userGuess = Number(guessInput.value);
-  attempts++;
 
   if (!userGuess || userGuess < 1 || userGuess > 100) {
     feedback.textContent = "🚫 Please enter a number between 1 and 100!";
@@ -23,6 +25,7 @@ function checkGuess() {
     return;
   }
 
+  attempts++; // Increment attempts only for valid input
   if (userGuess === randomNumber) {
     feedback.textContent = `🎉 Congratulations! You guessed it in ${attempts} attempt(s)!`;
     feedback.style.color = "#4caf50";
@@ -59,7 +62,7 @@ function restartGame() {
   guessInput.disabled = false;
   submitBtn.disabled = false;
   restartBtn.style.display = "none";
-  updateAttemptsLeft(); // Reset remaining attempts
+  attemptsLeft.textContent = maxAttempts; // Reset attempts left to max
   guessInput.focus();
 }
 
@@ -69,6 +72,3 @@ restartBtn.addEventListener("click", restartGame);
 guessInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkGuess();
 });
-
-// Initialize remaining attempts
-updateAttemptsLeft();
